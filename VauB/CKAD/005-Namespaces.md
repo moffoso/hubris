@@ -1,3 +1,4 @@
+### Namespaces
 Namspaces isolate environments, in this sense objects can have the same name in different namespaces without interfering with eachother
 
 ![](k-ns-examples.png)
