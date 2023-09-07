@@ -1,0 +1,7 @@
+- [k8s baremental setup](/Home-Projects/vault-server/100-k8s/102-k8s-baremetal.md)
+- [metallb and ingress nginx](/Home-Projects/vault-server/100-k8s/103-metallb_and_ingress-nginx.md)
+- [crowdsec](/Home-Projects/vault-server/100-k8s/104-crowdsec.md)
+- [cert-manager](/Home-Projects/vault-server/100-k8s/105-cert-manager.md)
+- [testpage](/Home-Projects/vault-server/100-k8s/106-testpage.md)
+- [wordpress](/Home-Projects/vault-server/100-k8s/107-wordpress.md)
+- [migrating to cilium](/Home-Projects/vault-server/100-k8s/108-migrating-to-cilium.md)

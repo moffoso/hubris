@@ -1,0 +1,3 @@
+- [vault-server setup](/Home-Projects/vault-server/002-vault-server-setup.md)
+- [vault-server network](/Home-Projects/vault-server/003-vault-server-networking.md)
+- [k8s baremetal ToC](/Home-Projects/vault-server/100-k8s/101-k8s-baremetal-ToC)
