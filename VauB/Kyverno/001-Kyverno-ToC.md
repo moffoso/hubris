@@ -1,0 +1,3 @@
+- [Validating Policy](/VauB/Kyverno/002-Validating_Policy.md)
+- [Mutating Policy](/VauB/Kyverno/003-Mutating_Policy.md)
+- [Generating Policy](/VauB/Kyverno/004-Generating_Policy.md)

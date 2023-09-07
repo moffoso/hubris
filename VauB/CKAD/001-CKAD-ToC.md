@@ -1,4 +1,4 @@
-- [Kubernetes Commands](002-Kubernetes_Commands)
-- [Container Runtime Interface (CRI)](003-Container_Runtime_Interface_(CRI))
-- [YAML in Kubernetes](004-YAML_in_Kubernetes)
-- [Namespaces](005-Namespaces)
+- [Kubernetes Commands](002-Kubernetes_Commands.md)
+- [Container Runtime Interface (CRI)](003-Container_Runtime_Interface_(CRI).md)
+- [YAML in Kubernetes](004-YAML_in_Kubernetes.md)
+- [Namespaces](005-Namespaces.md)
