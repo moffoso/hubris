@@ -4,7 +4,7 @@
 ### Kubernetes
 - [Introduction Kubernetes](/VauB/Introduction-Kubernetes/Introduction-Kubernetes-ToC.md)
 - [CKAD](/VauB/CKAD/001-CKAD-ToC.md)
-- [Kyverno](/VauB/Kyverno/)
+- [Kyverno](/VauB/Kyverno/001-Kyverno-ToC.md)
 
 ### Wiki
 - [Bugs](/Wiki/Bugs/001-Bugs-ToC.md)
