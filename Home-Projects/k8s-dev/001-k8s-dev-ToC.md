@@ -1,1 +1,3 @@
 - [Setup](/Home-Projects/k8s-dev/002-k8s-setup.md)
+- [metallb & ingress-nginx](/Home-Projects/k8s-dev/003-Metallb_&_ingress-nginx.md)
+- [client access](/Home-Projects/k8s-dev/004-client-access.md)
