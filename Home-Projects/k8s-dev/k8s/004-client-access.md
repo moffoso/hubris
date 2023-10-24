@@ -1,3 +1,30 @@
+### Hardening SSH access
+Check what file is overriding /etc/ssh/ssh_config
+```bash
+sshd -T
+# In my case the Output was: /etc/ssh/sshd_config.d/50-cloud-init.conf
+```
+
+>[!warning]
+> ```/etc/ssh/sshd_config.d/50-cloud-init.conf ```
+> is a symlink for cloud.init
+> https://cloudinit.readthedocs.io/en/21.1/topics/faq.html
+
+add following lines to the file
+```bash
+PasswordAuthentication no
+PermitRootLogin no
+ChallengeResponseAuthentication no
+UsePAM no
+```
+
+test the config with -o PubkeyAuthentication=no
+```bash
+ssh master@10.130.5.130 -o PubkeyAuthentication=no
+# Output will be this:
+# master@10.130.5.130: Permission denied (publickey).
+```
+
 ### Install and configure kubectl
 The installation of kubectl is analogue as with the server.
 The configuration works as follows:
@@ -14,6 +41,10 @@ cat <<EOF | sudo tee $HOME/.kube/config
 EOF
 ```
 
+configure the config to only be readable by your user
+```bash
+chmod go-r ~/.kube/config
+```
 ### Install helm on the client
 helm doesnt need to be configured as it uses the kubectl config
 ```bash

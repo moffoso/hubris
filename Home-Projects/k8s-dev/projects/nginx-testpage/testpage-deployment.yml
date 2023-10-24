@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: testpage 
+  name: testpage
+  labels:
+    app: testpage
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: testpage
+  template:
+    metadata:
+      labels:
+        app: testpage
+    spec:
+      containers:
+       - name: nginx-testpage
+         image: nginx
+         ports:
+          - containerPort: 80
+            name: http
+         volumeMounts:
+          - mountPath: usr/share/nginx/html
+            name: testpage-volume
+      volumes:
+       - name: testpage-volume
+         persistentVolumeClaim:
+           claimName: testpage-claim 

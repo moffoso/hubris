@@ -1,0 +1,40 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  annotations:
+    hostPathProvisionerIdentity: k8s-dev-master
+    pv.kubernetes.io/provisioned-by: microk8s.io/hostpath
+  creationTimestamp: "2023-09-15T14:31:01Z"
+  finalizers:
+  - kubernetes.io/pv-protection
+  name: pvc-13de877f-fe10-4b64-ac67-d19cd241a4d2
+  resourceVersion: "141101"
+  uid: 8f90343d-944e-46e6-a44e-810da285e45a
+spec:
+  accessModes:
+  - ReadWriteOnce
+  capacity:
+    storage: 25Gi
+  claimRef:
+    apiVersion: v1
+    kind: PersistentVolumeClaim
+    name: valheim-server-world-data
+    namespace: valheim
+    resourceVersion: "141019"
+    uid: 13de877f-fe10-4b64-ac67-d19cd241a4d2
+  hostPath:
+    path: /var/snap/microk8s/common/default-storage/valheim-valheim-server-world-data-pvc-13de877f-fe10-4b64-ac67-d19cd241a4d2
+    type: DirectoryOrCreate
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+          - k8s-dev-worker
+  persistentVolumeReclaimPolicy: Delete
+  storageClassName: microk8s-hostpath
+  volumeMode: Filesystem
+status:
+  phase: Bound

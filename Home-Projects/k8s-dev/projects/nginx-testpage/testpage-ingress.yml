@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-staging
+  name: testpage-ing
+  namespace: testpage
+spec:
+  tls:
+  - hosts:
+    - test.moff.ch
+    secretName: testpage-secret
+  ingressClassName: nginx
+  rules:
+  - host: test.moff.ch
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: testpage-svc
+            port:
+              number: 80

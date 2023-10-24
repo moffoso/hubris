@@ -1,0 +1,10 @@
+# addresspool.yaml
+---
+apiVersion: metallb.io/v1beta1
+kind: IPAddressPool
+metadata:
+  name: custom-addresspool
+  namespace: metallb-system
+spec: 
+  addresses:
+  - 10.130.5.200-10.130.5.210
