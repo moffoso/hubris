@@ -1,4 +1,4 @@
-# Install and configure Kubernetes v1.28
+	# Install and configure Kubernetes v1.28
 
 Created 2 Virtual Machines
 

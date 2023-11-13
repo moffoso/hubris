@@ -1,0 +1,9 @@
+kind: StorageClass
+apiVersion: storage.k8s.io/v1
+metadata:
+  name: vault127-hostpath
+provisioner: microk8s.io/hostpath
+reclaimPolicy: Delete
+parameters:
+  pvDir: /media/vault127/hostPath_storage
+volumeBindingMode: WaitForFirstConsumer
