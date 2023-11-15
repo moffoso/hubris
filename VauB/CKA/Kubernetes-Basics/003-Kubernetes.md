@@ -44,7 +44,7 @@ At a high level Kubernetes is a cluster of compute systems with distinct roles:
 - One or more control planes
 - One or more worker nodes
 
-![](Pasted%20image%2020231107125455.png)
+![](Kubernetes_architecture.png)
 
 - Control plane node overview
 	- provides a running environment for the control plane agents, these agents are have distinct roles in the cluster's management
