@@ -49,8 +49,25 @@ At a high level Kubernetes is a cluster of compute systems with distinct roles:
 - Control plane node overview
 	- provides a running environment for the control plane agents, these agents are have distinct roles in the cluster's management
 	- to persist the cluster's state, all configuration data is saved to a distributed key-value store which only holds cluster state related data
--  Control plane node components
-	- API Server
-	- Scheduler
-	- Controller Manager
-	- Key-Value Data Store
+### Control plane componants
+##### kube-apiserver
+- Exposes the different controllers and allows workers to communicate with the server
+##### kube-scheduler
+- Schedules applications or containers on nodes 
+##### Controller-Manager
+- Node-Controller
+	On-boarding new nodes, handling node availability
+- Replication-Controller
+	Ensures desired number of pods are running
+##### Key-Value Data Store
+- ETCD
+- Stores information about the cluster
+
+### Worker node componants
+##### kubelet
+- Agent that runs on each node in a cluster
+- Listens for instructions from the kube-apiserver
+- Deploys and destroys containers on the node
+- Sends status-reports to the apiserver
+##### kube-proxy
+- Ensures that the containers on the node can communicate with eachother
