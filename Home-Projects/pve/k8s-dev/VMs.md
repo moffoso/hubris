@@ -105,3 +105,27 @@ kubeadm join 192.168.140.107:6443 --token xz...7b0n \
         --discovery-token-ca-cert-hash sha256:63...4
 ```
 
+### Firewall rules
+Here are the rules I used on the microk8s cluster nodes (using ufw):
+```bash
+sudo ufw allow 6443/tcp
+sudo ufw allow 2379:2380/tcp
+sudo ufw allow 10250/tcp
+sudo ufw allow 10259/tcp
+sudo ufw allow 10257/tcp
+sudo ufw allow 10250/tcp
+sudo ufw allow 30000:32767/tcp
+sudo ufw allow 80/tcp
+sudo ufw allow 443/tcp
+```
+
+As the new nodes are using debian 12 bookworm, I'll make use of the already built in nf_tables. As I used the netinst debian 12 image it doesnt have firewalld installed per default. To make sure this image version has nf_tables i ran the following command:
+```bash
+lsmod | grep -i nf_tables
+``` 
+
+Now I install firewalld
+```bash
+sudo apt install firewalld
+```
+
