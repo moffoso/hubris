@@ -105,3 +105,17 @@ kubeadm join 192.168.140.107:6443 --token xz...7b0n \
         --discovery-token-ca-cert-hash sha256:63...4
 ```
 
+
+
+### client
+After copying the kube config to the client you will get following error:
+```bash
+WARNING: Kubernetes configuration file is group-readable. This is insecure. Location: /home/dan/.kube/config
+WARNING: Kubernetes configuration file is world-readable. This is insecure. Location: /home/dan/.kube/config
+```
+
+The fix is to change the permissions as follows:
+```bash
+chmod go-r ~/.kube/config
+```
+

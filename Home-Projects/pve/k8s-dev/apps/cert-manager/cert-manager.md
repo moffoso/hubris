@@ -1,4 +1,3 @@
-### cert-manager
 installed using the helm chart
 ```bash
  helm install \
@@ -7,5 +6,3 @@ installed using the helm chart
   --create-namespace \
   --version v1.13.2 \
   --set installCRDs=true
-```
-### ingress-nginx
