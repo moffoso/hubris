@@ -119,3 +119,72 @@ The fix is to change the permissions as follows:
 chmod go-r ~/.kube/config
 ```
 
+
+
+### client
+After copying the kube config to the client you will get following error:
+```bash
+WARNING: Kubernetes configuration file is group-readable. This is insecure. Location: /home/dan/.kube/config
+WARNING: Kubernetes configuration file is world-readable. This is insecure. Location: /home/dan/.kube/config
+```
+
+The fix is to change the permissions as follows:
+```bash
+chmod go-r ~/.kube/config
+```
+
+### Firewall rules
+Here are the rules I used on the microk8s cluster nodes (using ufw):
+```bash
+sudo ufw allow 6443/tcp
+sudo ufw allow 2379:2380/tcp
+sudo ufw allow 10250/tcp
+sudo ufw allow 10259/tcp
+sudo ufw allow 10257/tcp
+sudo ufw allow 10250/tcp
+sudo ufw allow 30000:32767/tcp
+sudo ufw allow 80/tcp
+sudo ufw allow 443/tcp
+```
+
+As the new nodes are using debian 12 bookworm, I'll make use of the already built in nf_tables. As I used the netinst debian 12 image it doesnt have firewalld installed per default. To make sure this image version has nf_tables i ran the following command:
+```bash
+lsmod | grep -i nf_tables
+``` 
+
+Now I install firewalld
+```bash
+sudo apt install firewalld
+```
+
+On the masternodes allow these ports (includes all relevant microservices)
+```bash
+sudo firewall-cmd --permanent --add-port=6443/tcp  
+sudo firewall-cmd --permanent --add-port=2379-2380/tcp  
+sudo firewall-cmd --permanent --add-port=10250/tcp  
+sudo firewall-cmd --permanent --add-port=10251/tcp  
+sudo firewall-cmd --permanent --add-port=10252/tcp  
+sudo firewall-cmd --permanent --add-port=10255/tcp  
+sudo firewall-cmd --permanent --add-port=8472/udp  
+sudo firewall-cmd --add-masquerade --permanent
+sudo firewall-cmd --permanent --add-port=30000-32767/tcp
+```
+
+restart firewalld
+```bash
+sudo systemctl restart firewalld
+```
+
+On the worker nodes add these rules
+```bash
+sudo firewall-cmd --permanent --add-port=10250/tcp  
+sudo firewall-cmd --permanent --add-port=10255/tcp  
+sudo firewall-cmd --permanent --add-port=8472/udp  
+sudo firewall-cmd --permanent --add-port=30000-32767/tcp 
+sudo firewall-cmd --add-masquerade --permanent 
+```
+
+restart firewalld
+```bash
+sudo systemctl restart firewalld
+```
