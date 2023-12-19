@@ -129,3 +129,34 @@ Now I install firewalld
 sudo apt install firewalld
 ```
 
+On the masternodes allow these ports (includes all relevant microservices)
+```bash
+sudo firewall-cmd --permanent --add-port=6443/tcp  
+sudo firewall-cmd --permanent --add-port=2379-2380/tcp  
+sudo firewall-cmd --permanent --add-port=10250/tcp  
+sudo firewall-cmd --permanent --add-port=10251/tcp  
+sudo firewall-cmd --permanent --add-port=10252/tcp  
+sudo firewall-cmd --permanent --add-port=10255/tcp  
+sudo firewall-cmd --permanent --add-port=8472/udp  
+sudo firewall-cmd --add-masquerade --permanent
+sudo firewall-cmd --permanent --add-port=30000-32767/tcp
+```
+
+restart firewalld
+```bash
+sudo systemctl restart firewalld
+```
+
+On the worker nodes add these rules
+```bash
+sudo firewall-cmd --permanent --add-port=10250/tcp  
+sudo firewall-cmd --permanent --add-port=10255/tcp  
+sudo firewall-cmd --permanent --add-port=8472/udp  
+sudo firewall-cmd --permanent --add-port=30000-32767/tcp 
+sudo firewall-cmd --add-masquerade --permanent 
+```
+
+restart firewalld
+```bash
+sudo systemctl restart firewalld
+```
