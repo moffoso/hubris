@@ -1,3 +1,6 @@
+## Obisidian Vault
+This repository serves as my personal knowledge database, it's a constant work in progress and I try to keep it up to date as best as I can. Almost anything I'm working on can be found in here.
+
 ### Home-Projects
 - [Home-Projects ToC](/Home-Projects/Home-Projects-ToC.md)
 
